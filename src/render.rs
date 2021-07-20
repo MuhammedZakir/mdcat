@@ -574,6 +574,7 @@ pub fn write_event<'a, W: Write>(
             let InlineAttrs { style, indent } = attrs;
             use ImageCapability::*;
             let resolved_link = environment.resolve_reference(&link);
+            println!("{:?}", resolved_link.as_ref());
             let image_state = match (settings.terminal_capabilities.image, resolved_link) {
                 (Some(Terminology(terminology)), Some(ref url)) => {
                     terminology.write_inline_image(writer, settings.terminal_size, url)?;
