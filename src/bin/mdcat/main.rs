@@ -56,6 +56,7 @@ fn process_file(
     output: &mut Output,
 ) -> Result<()> {
     let (base_dir, input) = read_input(filename)?;
+    println!("base_dir: {:?}", base_dir);
     let parser = Parser::new_ext(
         &input,
         Options::ENABLE_TASKLISTS | Options::ENABLE_STRIKETHROUGH,
