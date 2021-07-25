@@ -40,6 +40,7 @@ fn read_input<T: AsRef<str>>(filename: T) -> (PathBuf, String) {
     } else {
         let mut source = File::open(filename.as_ref())?;
         source.read_to_string(&mut buffer)?;
+        println!("current_dir: {:?}", cd);
         let base_dir = cd
             .join(filename.as_ref())
             .parent()

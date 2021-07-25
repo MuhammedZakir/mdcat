@@ -137,6 +137,7 @@ pub fn read_url(url: &Url, access: ResourceAccess) -> Result<Vec<u8>> {
         "file" => match url.to_file_path() {
             Ok(path) => {
                 let mut buffer = Vec::new();
+                println!("read_url: path: {:?}", path);
                 File::open(path)
                     .with_context(|| format!("Failed to open file at {}", url))?
                     // Read a byte more than the limit differentiate an expected EOF from hitting the limit
